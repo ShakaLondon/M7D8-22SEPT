@@ -125,11 +125,10 @@ const DetailComponent = ({ location, ...restprops }: RouteProps) => {
       let response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/track/:${searchReq}`)
       let songs = await response.json()
       console.log(songs)
-      let songArr = []
-      songArr.push(songs)
-      setSong(songArr)
+      // let songArr = []
+      // songArr.push(songs)
+      // setSong(songArr)
     // setsearchReq('')
-
     }
     fetchData()
   }, [])
