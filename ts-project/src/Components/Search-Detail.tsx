@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRecycle } from '@fortawesome/free-solid-svg-icons'
 import { withRouter, Redirect, Link, useLocation } from 'react-router-dom';
 import { type } from 'os'
+import { url } from 'inspector'
 
 
 type RouteProps = RouteComponentProps 
@@ -63,14 +64,17 @@ type SearchInput = string
 
 type SongID = number
 
+// type MixedProps = RouteComponentProps & Song
 
 
-const DetailComponent = ({ location, ...restprops }: RouteProps) => {
+
+
+const DetailComponent = ({ location, ...restprops }: RouteProps, song: Song) => {
   console.log(location)
 
     // const [Searching, setsearchStatus] = useState<SearchActive>(false)
   const [data, setData] = useState<SearchInput>('')
-  const [songDetail, setSong] = useState<Song[]>([])
+  const [songDetail, setSong] = useState<Song|null>()
 //   TO HOLD STATE FOR SEARCH REQ INPUT
 // const [data, setData] = useState<Book[]>([])
 // USING INTERFACE AS TYPE FOR THE USE STATE TO RECIEVE DATA FROM API
@@ -122,12 +126,12 @@ const DetailComponent = ({ location, ...restprops }: RouteProps) => {
 
     const fetchData = async () => {
       // let's say we're doing a fetch...
-      let response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/track/:${searchReq}`)
+      let response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/track/${searchReq}`)
       let songs = await response.json()
       console.log(songs)
       // let songArr = []
       // songArr.push(songs)
-      // setSong(songArr)
+      setSong(songs)
     // setsearchReq('')
     }
     fetchData()
@@ -137,13 +141,13 @@ console.log(songDetail)
 
   return (
     
-    <div className="jumbotron">
-      <h1 className="display-4">Hello, world!</h1>
-      <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <div className="jumbotron jumbotron-image text-dark" style={{backgroundImage: `url(${songDetail?.album.cover_xl})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+      <h1 className="display-4">{songDetail?.title}</h1>
+      <p className="lead">{`${songDetail?.artist.name} : ${songDetail?.album.title}`}</p>
       <hr className="my-4"/>
       <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
       <p className="lead">
-        <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <a className="btn btn-primary btn-lg" href="#" role="button"> </a>
         </p>
   </div>
   )
