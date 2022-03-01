@@ -4,10 +4,10 @@
 
 ## TECHNOLOGIES USED
 
-I used HTML, CSS, TYPESCRIPT, NODE, REACT, MONGODB, MONGOOSE and EXPRESS to create this app.
+I used HTML, CSS, TYPESCRIPT, NODE, REACT.
 
 ## SCREENSHOTS
-
+<!-- 
 #### Papaya Home Page
 ![Papaya Homepage Screenshot](https://res.cloudinary.com/shakalondon/image/upload/v1646088865/Papaya/Home-Page.png)
 
@@ -17,7 +17,7 @@ I used HTML, CSS, TYPESCRIPT, NODE, REACT, MONGODB, MONGOOSE and EXPRESS to crea
 #### Papaya Category Search Page
 ![Papaya Category Search Screenshot](https://res.cloudinary.com/shakalondon/image/upload/v1646088862/Papaya/Category-Search-Page.png)
 
-
+ -->
 ## AVAILABLE SCRIPTS
 
 ###### In the project directory, you can run:
